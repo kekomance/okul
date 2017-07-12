@@ -34,7 +34,7 @@ if(!(isset($_SESSION["ogrenci"])))
  <br>
 <table border=1 align="center" width="1000" height="650">
 
-<tr><td width="100" height="150">ÖĞRENCİ FOTOSU</td>  <td width="667" align="center"> <div align="left"> <?php  echo"$ogrenci_adi"; echo"<br>"; echo"$ogrenci_soyadi";       ?></div>BANNER GELECEK</td> <td width="50"><a href="oturumkapat.php">ÇIKIŞ</a></td></tr>
+<tr><td width="100" height="150">ÖĞRENCİ FOTOSU</td>  <td width="667" align="center"> <div align="left"> <?php  echo"$ogrenci_adi"; echo"<br>"; echo"$ogrenci_soyadi"; ?></div>BANNER GELECEK</td> <td width="50"><a href="oturumkapat.php">ÇIKIŞ</a></td></tr>
 
 <tr>
 <td width="100" ><table border=1 height="550"> 

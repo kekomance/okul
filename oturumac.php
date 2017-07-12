@@ -20,7 +20,7 @@ $yaz=$sorgu->fetch(PDO::FETCH_ASSOC);//ÇEKTİĞİMİZ SORGUYU GÜVENLİ BİR Ş
   {
 
     	
-    	session_start();
+    	session_start();//Session ile id yi tutuyoruz..
     	$ogrenci_idi=$yaz["ogrenci_id"];
     	$_SESSION["ogrenci"]=$ogrenci_idi;
     	Echo "<script>window.location='ogrencianasayfa.php';</script>"; 
@@ -37,16 +37,26 @@ if(isset($_POST['ogretmengonder']))
 $sorgu2=$db->prepare("SELECT * from ogretmenler WHERE kullaniciadi=? and ogretmen_parola=?");
 $sorgu2->execute(array($ogretmenno,$ogretmen_parola));
 $yaz2=$sorgu2->fetch(PDO::FETCH_ASSOC);
-
-if ( $sorgu2->rowCount() )
+$durum=$yaz2["durum"];//Öğretmenmi - Yöneticimi..(1=Öğretmen 0=Yönetici)
+$ogretmen_id=$yaz2["ogretmen_id"];
+if ( $sorgu2->rowCount() && $durum=="1")
   {
      Echo "<script>window.location='ogretmenanasayfa.php';</script>"; 
+
   }
-	echo "<br><br><br><center><h3><b>Kullanıcı Adı/Şifre Yanlış.</b></h3><br><a href=javascript:history.back(-1)>Geri Dön</a></center>";
+
+if ( $sorgu2->rowCount() && $durum=="0")
+  {
+    session_start();
+    
+    $_SESSION["yonetici_id"]=$ogretmen_id;
+     Echo "<script>window.location='yoneticianasayfa.php';</script>"; 
+
+  }
+
+else
+{	echo "<br><br><br><center><h3><b>Kullanıcı Adı/Şifre Yanlış.</b></h3><br><a href=javascript:history.back(-1)>Geri Dön</a></center>";
 }
 
-
-
-
-
+}
 ?>
