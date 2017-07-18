@@ -44,6 +44,8 @@ if(!(isset($_SESSION["ogrenci"])))
 <tr><td> DUYURULAR </td> </tr>
 <tr><td> BELGELER </td> </tr>
 <tr><td> DERS PROGRAMI </td> </tr>
+<tr><td> <a href="mesaj.php?id=3">MESAJ GÖNDER </a></td> </tr>
+<tr><td> MESAJLAR </td> </tr>
 <tr><td> SINAV TARİHLERİ </td> </tr>
 </table> 
 <td colspan="2"> <h1> İÇERİK KISMI </h1></td></td>

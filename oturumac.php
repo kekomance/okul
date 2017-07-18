@@ -22,7 +22,7 @@ $yaz=$sorgu->fetch(PDO::FETCH_ASSOC);//ÇEKTİĞİMİZ SORGUYU GÜVENLİ BİR Ş
     	
     	session_start();//Session ile id yi tutuyoruz..
     	$ogrenci_idi=$yaz["ogrenci_id"];
-    	$_SESSION["ogrenci"]=$ogrenci_idi;
+    	$_SESSION["ogrenci_id"]=$ogrenci_idi;
     	Echo "<script>window.location='ogrencianasayfa.php';</script>"; 
    
   }
